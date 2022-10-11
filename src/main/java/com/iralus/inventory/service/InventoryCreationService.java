@@ -26,7 +26,7 @@ public class InventoryCreationService implements IInventoryCreationService{
 
     @Override
     public List<Inventory> addInventory(Shipment shipment) {
-        Set<ShipmentDetail> shipmentDetails = shipment.getShipmentDetails();
+        /*Set<ShipmentDetail> shipmentDetails = shipment.getShipmentDetails();
         List<Inventory> inventories = new ArrayList<>();
         for (ShipmentDetail shipmentDetail : shipmentDetails) {
             Double productCost = productCostCalculationService.getCost(shipmentDetail);
@@ -46,6 +46,7 @@ public class InventoryCreationService implements IInventoryCreationService{
                             .build();
             inventories.add(inventory);
         }
-        return inventoryRepository.saveAll(inventories);
+        return inventoryRepository.saveAll(inventories);*/
+        return null;
     }
 }

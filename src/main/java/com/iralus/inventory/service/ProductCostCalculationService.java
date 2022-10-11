@@ -23,29 +23,29 @@ public class ProductCostCalculationService implements IProductCostCalculationSer
         this.freightRateRepository = freightRateRepository;
     }
 
-    final Double ALIBABA_COMMISSION = rateRepository.findByRateName("ALIBABA_COMMISSION").getRate();
-    final Double STAMP_DUTY = rateRepository.findByRateName("STAMP_DUTY").getRate();
-    final Double OTHER_DUTY = rateRepository.findByRateName("OTHER_DUTY").getRate();
+    //final Double ALIBABA_COMMISSION = rateRepository.findByRateName("ALIBABA_COMMISSION").getRate();
+    //final Double STAMP_DUTY = rateRepository.findByRateName("STAMP_DUTY").getRate();
+    //final Double OTHER_DUTY = rateRepository.findByRateName("OTHER_DUTY").getRate();
 
-    @Override
+    /*@Override
     public Double getCost(ShipmentDetail shipmentDetail) {
         return getCost(shipmentDetail.getUnitPrice(),shipmentDetail.getProduct().getVolume(), shipmentDetail.getShipment());
-    }
+    }*/
 
-    @Override
+    /*@Override
     public Double getCost(Double productPrice, Double volumeOrWeight, Integer shipmentId) {
         Shipment shipment = shipmentRepository.findById(shipmentId).get();
         return getCost(productPrice, volumeOrWeight, shipment);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public Double getCost(Double productPrice, Double volumeOrWeight, Shipment shipment) {
         return getRateBasedCost(productPrice, shipment) +
                 getTransportCostForProduct(shipment, volumeOrWeight) +
                 getLogisticAndClearanceCostForProduct(shipment, volumeOrWeight);
-    }
+    }*/
 
-    protected Double getRateBasedCost(Double productPrice, Shipment shipment) {
+    /*protected Double getRateBasedCost(Double productPrice, Shipment shipment) {
         Double alibabaCharge = productPrice * (ALIBABA_COMMISSION / 100);
         Double stampDuty = productPrice * (STAMP_DUTY / 100);
 
@@ -67,9 +67,9 @@ public class ProductCostCalculationService implements IProductCostCalculationSer
             rateBasedCost = alibabaCharge + stampDuty;
         }
         return rateBasedCost;
-    }
+    }*/
 
-    protected Double getTransportCostForProduct(Shipment shipment, Double volumeOrWeight) {
+    /*protected Double getTransportCostForProduct(Shipment shipment, Double volumeOrWeight) {
         Double exchangeRate = Math.max(shipment.getInitialExchangeRate(), shipment.getBalanceExchangeRate());
         Double chTransportCharge = shipment.getChTransportCharge();
         Double chTransportCost = 0.0;
@@ -83,7 +83,7 @@ public class ProductCostCalculationService implements IProductCostCalculationSer
         }
         Double slTransportCost = shipment.getSlTransportCharge();
         return ((chTransportCost * exchangeRate) + slTransportCost) / volumeOrWeight;
-    }
+    }*/
 
     protected Double getLogisticAndClearanceCostForProduct(Shipment shipment, Double volumeOrWeight) {
         Double logisticAndClearance;
